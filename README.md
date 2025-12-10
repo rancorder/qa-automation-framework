@@ -1,117 +1,87 @@
-🎭 Playwright QA Framework
+# QA×自動化エンジニアリング  
+日々の業務に潜む「なんとなく手動」を徹底的に自動化して、  
+人の注意力ではなく、仕組みで品質を担保することをテーマにしています。
 
-作者: rancorder
-目的: QAエンジニアとしての実務力の可視化
-実行結果: E2Eテスト 12/12（100%成功）
+---
 
-🎯 このフレームワークで証明できること
+## 🚀 Mission  
+**“テストを作業ではなく、プロダクト価値を支える仕組みに変える。”**  
+そのために QA 戦略と自動化の両輪でアプローチしています。
 
-Playwrightを“使える”ではなく、実務レベルで扱えることを示すためのリポジトリ。
+---
 
-6ブラウザ（Desktop + Mobile）に完全対応
+## 🧩 What I Do  
+### 1. QA設計  
+- テスト観点整理  
+- E2E / API / ユニット等のテスト戦略立案  
+- バグ再現性の分析と再発防止設計  
+- チームとの品質レビュー
 
-TypeScriptでの型安全実装
+### 2. 自動化エンジニアリング  
+- Python によるテスト自動化ツール作成  
+- Node.js / Playwright / Puppeteer を使ったE2E自動化  
+- APIテストの自動化  
+- スクレイピング・データ検証フローの構築  
+- CI/CD（GitHubActions）による定期テストの運用
 
-並列実行による高速化
+### 3. 生成AI × QA  
+- ChatGPT / Claude API を使ったテストケース生成  
+- テストログ分析の自動化  
+- QAオペレーションの自動化（Slack/Notion/Sheets）
 
-HTML/JSON/JUnitレポート自動生成
+---
 
-企業環境に即座に移植可能な構成
+## 📚 Story  
+エンジニアとして業務効率化ツールを作っていく中で、  
+「テスト工程が一番人の感情に左右される」ということに気づきました。  
 
-**「動くコードで証明するQAスキル」**を目的に設計。
+夜中に眠い時はバグを見逃すし、  
+忙しい日はテストが後回しになる。  
 
-📊 実行結果（実データ）
-Running 24 tests using 6 workers
+プロダクトの質は“人の調子”に依存してしまう。
 
-E2Eテスト: 12/12 成功
- - ログイン成功: 6ブラウザすべて成功
- - ログイン失敗: 6ブラウザすべて成功
+ここを変えない限り、良いサービスは作れない。  
+だから手動作業を徹底的に観察し、  
+**再現性と信頼性を持つ仕組みに置き換える**ことにハマりました。
 
-APIテスト: 403エラー（外部API仕様のため除外）
+「ミスを責めない。仕組みを育てる。」  
+これが自分のQA哲学です。
 
-実行時間: 25.9秒
-対応ブラウザ: Chromium / Firefox / WebKit / Mobile Chrome / Mobile Safari / iPad
-並列実行: 6 workers
+---
 
+## 🛠️ Skills  
+- Python（自動化、検証、ツール作成）  
+- Node.js / TypeScript  
+- Playwright / Puppeteer  
+- GitHub Actions  
+- APIテスト自動化  
+- Notion / Slack / Google Workspace 自動化  
+- 生成AI (ChatGPT, Claude, Gemini API)
 
-レポート: npx playwright show-report
-ログ: test-results.json
+---
 
-💡 これが企業の何に役立つのか
-手動テストの限界を根本から改善
-項目	手動	このFW
-テスト時間	8時間	26秒
-ブラウザ	1つ	6つ
-見落とし	発生	ゼロ
-実行頻度	週1	制限なし
-コスト	高い	95%削減
+## 🧪 Works  
+### ● E2E自動化（Playwright）  
+- ログイン〜主要機能のシナリオを自動化  
+- GitHub Actions で毎朝テストを実行  
+- バグ率 35% → 12% に減少
 
-時間99.9%削減・コスト95%削減 を“実測値”で提示。
+### ● QAワークフロー自動化ツール（Python）  
+- CSV/DB の整合性チェック  
+- バグ報告テンプレ生成  
+- Slack通知  
+- 手作業 3時間/日 → 15分 に短縮
 
-クロスブラウザテストを完全自動化
+### ● 生成AIでのテストケース自動生成  
+- 要件 → テスト観点 → ケース作成を自動化  
+- テスト漏れがほぼゼロに
 
-手動ではほぼ不可能な Mobile Safari や iPad も含めて
-全ブラウザを26秒で網羅。
+---
 
-ブラウザ対応率：60% → 95%
-テスト時間：24時間 → 26秒
+## 🤝 Looking For  
+- 自動化で品質と速度を両立したいチーム  
+- QA工程を仕組み化したい組織  
+- AI × QA に挑戦したい会社
 
-開発速度を劇的に向上
-
-git pushだけで自動実行。
-回帰テストが5分以内で終わるため、開発速度は約5倍に。
-
-💻 使い方
-npm install
-npx playwright install
-npm test
-
-
-レポート表示:
-
-npx playwright show-report
-
-
-デモ（面接用）:
-
-npm run test:headed
-npx playwright test --project=chromium
-
-🏆 実務で強い理由
-項目	一般候補	このポートフォリオ
-証明方法	口頭	実際に動くコード
-実績	不明	全テスト成功
-即戦力	要研修	初日から導入可能
-デモ	不可	その場で実行可能
-🚀 導入ステップ
-
-BASE_URL を自社サイトに変更
-
-ケースをコピーして追加
-
-npm test で自動化完了
-
-初週から本番導入可能。
-
-📈 技術スタック
-
-Playwright 1.57
-
-TypeScript 5.3
-
-Node.js 18+
-
-6ブラウザ対応（Desktop + Mobile）
-
-📞 Contact
-
-GitHub: https://github.com/rancorder
-
-Portfolio: https://aistudio.netlify.app/portfolio_engineer.html
-
-<div align="center">
-即戦力QAエンジニアとしての実力証明
-
-E2E 100%成功・高速化・ビジネス価値まで提示済み
-
-</div>
+「人が頑張る QA」から「仕組みが支える QA」へ。  
+その橋渡しをするのが、自分の役割です。
