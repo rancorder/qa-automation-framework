@@ -1,0 +1,22 @@
+{
+  "name": "recerqa-qa-framework",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test",
+    "test:e2e": "playwright test tests/e2e",
+    "test:api": "playwright test tests/api",
+    "test:inventory": "playwright test tests/e2e/inventory.spec.ts",
+    "test:purchase": "playwright test tests/e2e/purchase-flow.spec.ts",
+    "test:scm-api": "playwright test tests/api/scm-endpoints.spec.ts",
+    "report": "playwright show-report"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.9.1",
+    "dotenv": "^16.3.1"
+  }
+}
