@@ -1,87 +1,86 @@
-# QA×自動化エンジニアリング  
-日々の業務に潜む「なんとなく手動」を徹底的に自動化して、  
-人の注意力ではなく、仕組みで品質を担保することをテーマにしています。
+# QA Framework
+
+プロダクト改善と自動化のために構築した統合テストフレームワークです。  
+E2E / API / AI ベースのテスト生成まで、一連の QA 体験を最短距離で回すことを目的としています。
 
 ---
 
-## 🚀 Mission  
-**“テストを作業ではなく、プロダクト価値を支える仕組みに変える。”**  
-そのために QA 戦略と自動化の両輪でアプローチしています。
+## 特徴
+- **Playwright による E2E テスト**：UI フローの自動化と回帰テストを高速化。
+- **API テスト統合**：SCM 系エンドポイントを中心に、REST API の信頼性を担保。
+- **AI テスト生成（Experimental）**：`ai-test-generator.ts` により、仕様からテスト案を自動生成。
+- **拡張性の高い構成**：`lib/` と `tests/` を明確に分離し、保守しやすい構造へ。
+- **ローカルでも CI でも同一挙動**：npm scripts と Playwright 標準構造で安定動作を実現。
 
 ---
 
-## 🧩 What I Do  
-### 1. QA設計  
-- テスト観点整理  
-- E2E / API / ユニット等のテスト戦略立案  
-- バグ再現性の分析と再発防止設計  
-- チームとの品質レビュー
-
-### 2. 自動化エンジニアリング  
-- Python によるテスト自動化ツール作成  
-- Node.js / Playwright / Puppeteer を使ったE2E自動化  
-- APIテストの自動化  
-- スクレイピング・データ検証フローの構築  
-- CI/CD（GitHubActions）による定期テストの運用
-
-### 3. 生成AI × QA  
-- ChatGPT / Claude API を使ったテストケース生成  
-- テストログ分析の自動化  
-- QAオペレーションの自動化（Slack/Notion/Sheets）
+## ディレクトリ構成
+```
+qa-framework/
+├── lib/
+│   ├── ai-test-generator.ts    # AIベースのテスト生成ロジック
+│   └── scm-simulator.ts        # APIモック・データシミュレーション
+├── tests/
+│   ├── e2e/                    # E2E テスト
+│   └── api/                    # API テスト
+├── playwright.config.ts
+└── package.json
+```
 
 ---
 
-## 📚 Story  
-エンジニアとして業務効率化ツールを作っていく中で、  
-「テスト工程が一番人の感情に左右される」ということに気づきました。  
-
-夜中に眠い時はバグを見逃すし、  
-忙しい日はテストが後回しになる。  
-
-プロダクトの質は“人の調子”に依存してしまう。
-
-ここを変えない限り、良いサービスは作れない。  
-だから手動作業を徹底的に観察し、  
-**再現性と信頼性を持つ仕組みに置き換える**ことにハマりました。
-
-「ミスを責めない。仕組みを育てる。」  
-これが自分のQA哲学です。
+## セットアップ
+```
+npm install
+npx playwright install
+```
 
 ---
 
-## 🛠️ Skills  
-- Python（自動化、検証、ツール作成）  
-- Node.js / TypeScript  
-- Playwright / Puppeteer  
-- GitHub Actions  
-- APIテスト自動化  
-- Notion / Slack / Google Workspace 自動化  
-- 生成AI (ChatGPT, Claude, Gemini API)
+## テスト実行
+```
+npm test
+```
 
 ---
 
-## 🧪 Works  
-### ● E2E自動化（Playwright）  
-- ログイン〜主要機能のシナリオを自動化  
-- GitHub Actions で毎朝テストを実行  
-- バグ率 35% → 12% に減少
+## 実行ログ（抜粋）
+```
+Running 52 tests using 3 workers
 
-### ● QAワークフロー自動化ツール（Python）  
-- CSV/DB の整合性チェック  
-- バグ報告テンプレ生成  
-- Slack通知  
-- 手作業 3時間/日 → 15分 に短縮
-
-### ● 生成AIでのテストケース自動生成  
-- 要件 → テスト観点 → ケース作成を自動化  
-- テスト漏れがほぼゼロに
+  ✘   SCM API - Inventory Endpoints › GET /inventory › should return inventory list with pagination (162ms)
+  ✓   SCM Inventory Management › 基本操作 › should update stock on inbound operation (18ms)
+  ✓   SCM Purchase Flow › 発注作成 › should create purchase order successfully (320ms)
+  ...
+```
+※ Fail の部分は改善対象として残してあります。実際のデバッグや改善プロセスの証跡として、Wantedly ストーリーと合わせて理解されやすくなります。
 
 ---
 
-## 🤝 Looking For  
-- 自動化で品質と速度を両立したいチーム  
-- QA工程を仕組み化したい組織  
-- AI × QA に挑戦したい会社
+## AI テスト生成（Experimental）
+仕様書・API 定義を入力すると、テスト案を Markdown 形式で自動生成します。  
+今後は Dify / LLM ワークフローとも統合予定。
 
-「人が頑張る QA」から「仕組みが支える QA」へ。  
-その橋渡しをするのが、自分の役割です。
+---
+
+## 目的
+このフレームワークは、
+- テストの属人化を防ぐ
+- 新規機能を安全に追加できる環境を作る
+- QA 工数を削減し、検証の質を引き上げる
+
+ことを目的に設計しています。  
+Wantedly のストーリーとも親和性が高く、「成果物」として最も伝わる領域になります。
+
+---
+
+## 今後の拡張予定
+- Dify/LLM 連携による自動テスト生成の強化
+- CI/CD のテンプレート化
+- シナリオベースの負荷試験モジュール
+- API モックサーバの自動生成
+
+---
+
+## ライセンス
+Private Use Only
