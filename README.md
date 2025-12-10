@@ -116,7 +116,7 @@ Error Response: {}
       30 |       expect(response.status()).toBe(200);
       31 |
       32 |       const data = await response.json();
-        at C:\Users\masube\Desktop\qa-framework\tests\api\scm-endpoints.spec.ts:29:29
+        at C:\Users\***\Desktop\qa-framework\tests\api\scm-endpoints.spec.ts:29:29
 ```
 ※ Fail の部分は改善対象として残してあります。実際のデバッグや改善プロセスの証跡として、Wantedly ストーリーと合わせて理解されやすくなります。
 
